@@ -1,0 +1,21 @@
+i {
+    margin: 1rem;
+}
+
+main {
+    background-color: white;
+}
+
+#produit {
+    text-align: center;
+    background-color: white;
+}
+
+.Img_produit {
+    width: 40rem;
+    margin-left: -7rem;
+}
+
+#ChoixCouleurs{
+    text-align: center;
+}
