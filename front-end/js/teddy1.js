@@ -50,18 +50,16 @@ fetch('http://localhost:3000/api/teddies/' + id)
 
                 //Déclaration de la récupération des données
                 let panier = JSON.parse(localStorage.getItem('selectedTeddies'))
-
+                console.log(JSON.parse(localStorage.getItem('selectedTeddies')))
                 //Parcourir le panier et y ajouter des produits 
-                for (i = 0; i < panier.length; i++) {
-                    for (i = 0; i < panier.length; i++) {
-                        if(panier[i].Id === selectedId.Id) {
-                            panier[i].quantity++;
+                    for (let id in panier) {
+                        if(id === selectedId.Id) {
+                            panier.quantity++;
                         }
                         else {
                             panier.push(selectedId);
                         }
                     }
-            } 
                 
                 //Transformation en format JSON et envoi à la key du localStorage
                 localStorage.setItem('selectedTeddies', JSON.stringify(selectedId));
