@@ -20,7 +20,7 @@ fetch('http://localhost:3000/api/teddies/' + id)
             PageProduit = PageProduit + '<p class="prix">' + produit.price/100 + '€</p>';
             PageProduit = PageProduit + '<h2 id="productName">' + produit.name + '</h2>';
             PageProduit = PageProduit + '<button id="ajouterPanier">Ajouter au panier</button>';
-            PageProduit = PageProduit + '<input  type="hidden" name="prodduit" id="IdProduit" value=' + produit._id + '>';
+            PageProduit = PageProduit + '<input  type="hidden" name="produit" id="IdProduit" value=' + produit._id + '>';
               
             document.getElementById('produit').innerHTML = PageProduit
             
@@ -45,32 +45,27 @@ fetch('http://localhost:3000/api/teddies/' + id)
 
             //Récupération du bouton "ajouter au panier"
             document.getElementById("ajouterPanier").addEventListener("click", function() {
-                //Récupération des données de l'objet à ajouter au localStorage
-                //Récupération des données de l'objet à ajouter au localStorage
-                let selectedId = document.getElementById("produit").value
-                let imgSrc = document.getElementsByClassName("Img_produit").src
-                let productName = document.getElementById("productName").textContent
-                let price = document.getElementsByClassName("prix").value
 
-                //Déclaration de l'objet à ajouter
-                let teddyObject = { image : imgSrc, name: productName, price : price, id: selectedId, quantity : 1 }
-                console.log(teddyObject)
+                let selectedId = document.getElementById("IdProduit").value;
 
                 //Déclaration de la récupération des données
-                let panier = JSON.parse(localStorage.getItem('selectedTeddies'))
-                console.log(JSON.parse(localStorage.getItem('selectedTeddies')))
+                let paniers = JSON.parse(localStorage.getItem('selectedTeddies'));
+
+                let blnTrouve = false
                 //Parcourir le panier et y ajouter des produits 
-                    for (let id in panier) {
-                        if(id === selectedId.id) {
-                            panier.quantity++;
-                        }
-                        else {
-                            panier.push(selectedId);
-                        }
+                for(let panier in paniers) {
+                    if(panier.id === selectedId) {
+                        panier.quantity++;
+                        blnTrouve==true;
                     }
+                }
+                if(blnTrouve==false) {
+                    //Déclaration de l'objet à ajouter
+                    let teddyObject = { id:selectedId, quantity:1 };
                 
                 //Transformation en format JSON et envoi à la key du localStorage
                 localStorage.setItem('selectedTeddies', JSON.stringify(teddyObject));
+                }
              })
 })
 
