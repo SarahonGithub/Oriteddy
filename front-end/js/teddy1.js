@@ -46,14 +46,22 @@ fetch('http://localhost:3000/api/teddies/' + id)
             //Récupération du bouton "ajouter au panier"
             document.getElementById("ajouterPanier").addEventListener("click", function() {
                 //Récupération des données de l'objet à ajouter au localStorage
-                let selectedId = {Id:document.getElementById("IdProduit").value, quantity:1};
+                //Récupération des données de l'objet à ajouter au localStorage
+                let selectedId = document.getElementById("produit").value
+                let imgSrc = document.getElementsByClassName("Img_produit").src
+                let productName = document.getElementById("productName").textContent
+                let price = document.getElementsByClassName("prix").value
+
+                //Déclaration de l'objet à ajouter
+                let teddyObject = { image : imgSrc, name: productName, price : price, id: selectedId, quantity : 1 }
+                console.log(teddyObject)
 
                 //Déclaration de la récupération des données
                 let panier = JSON.parse(localStorage.getItem('selectedTeddies'))
                 console.log(JSON.parse(localStorage.getItem('selectedTeddies')))
                 //Parcourir le panier et y ajouter des produits 
                     for (let id in panier) {
-                        if(id === selectedId.Id) {
+                        if(id === selectedId.id) {
                             panier.quantity++;
                         }
                         else {
@@ -62,7 +70,7 @@ fetch('http://localhost:3000/api/teddies/' + id)
                     }
                 
                 //Transformation en format JSON et envoi à la key du localStorage
-                localStorage.setItem('selectedTeddies', JSON.stringify(selectedId));
+                localStorage.setItem('selectedTeddies', JSON.stringify(teddyObject));
              })
 })
 
