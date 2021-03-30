@@ -61,11 +61,12 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 }
                 if(blnTrouve==false) {
                     //Déclaration de l'objet à ajouter
-                    let teddyObject = { id:selectedId, quantity:1 };
-                
+                    var teddyObject = { id:selectedId, quantity:1 };
+                    localStorage.setItem('selectedTeddies', JSON.stringify(teddyObject));
+                }
                 //Transformation en format JSON et envoi à la key du localStorage
                 localStorage.setItem('selectedTeddies', JSON.stringify(teddyObject));
-                }
+                
              })
 })
 
