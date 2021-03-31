@@ -48,18 +48,18 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 
                 var selectedId = document.getElementById("IdProduit").value;
 
-                let paniers = []; 
+                var paniers = []; 
 
                 //Si le panier contient quelque chose
                 if (localStorage.getItem('selectedTeddies') !== null) {
-                    paniers = JSON.parse(localStorage.getItem('selectedTeddies'));
+                    JSON.parse(localStorage.getItem('selectedTeddies'));
                 }
                 
                 let blnTrouve = false
 
                 //Parcourir le panier et y ajouter des produits 
                 for(let panier in paniers) {
-                    if(panier.id === selectedId) {
+                    if(panier.id == selectedId) {
                         panier.quantity++;
                         blnTrouve=true;
                         break;
@@ -68,7 +68,7 @@ fetch('http://localhost:3000/api/teddies/' + id)
 
                 //L'article n'existe pas dans le panier
                 if(blnTrouve==false) {
-                    var teddyObject = { id:selectedId, quantity:1 };
+                    var teddyObject = {id: selectedId, quantity: 1};
                     paniers.push(teddyObject);
                 }
             
@@ -77,50 +77,6 @@ fetch('http://localhost:3000/api/teddies/' + id)
 
              })
 })
-
-/*
-
-             //Ajout des données au localStorage
-             const addToBasketBtn = document.getElementById('ajouterPanier').addEventListener("click", function() {
-                 if(typeof  != null){
-
-                     return
-                 }
-             })
-
-
-
-             function DepartPanier() {
-                 var panier = localStorage.getItem("panier");
-                 if(panier != null){
-                     return JSON.parse(panier);
-                 }else{
-                     return ;
-                 }
-             }
-
-             function ajouterAuPanier(produit){
-                 var panier = DepartPanier();
-                 //Incrémenter la quatité 
-                 var produit = panier.find(function(produit){
-                     return produit.id == id);
-                 })
-                 if()
-                 panier.push(produit);
-                 panierEnregistre(panier);
-             }
-
-             function supprimerDuPanier(produit){
-
-             }
-
-             //fonction commune à ajouterAuPanier et supprimerDuPanier
-             function panierEnregistre(panier){
-                 localStorage.setItem("panier", JSON.stringify(panier));
-             }
-
-*/
-
     
     .catch(function(error) {
         alert(error)
