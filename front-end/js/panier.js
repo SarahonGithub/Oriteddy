@@ -1,19 +1,30 @@
-var name = "";
-var price = "";
-var id = "";
-var image = "";
+PagePanier = '';
 
-let panier = JSON.parse(localStorage.getItem('selectedTeddies'))
+let panier = (localStorage.getItem('selectedTeddies'))
 //Parcourir le panier
-for (let products in panier) {
+for (i = 0; i < panier.length; i++) {
     
-    name = products.name;
-    price = products.price;
-    id = products.id;
-    image = products.image;
+    var id = panier[i].id;
+    var qty = panier[i].quantity;
 
-    document.getElementById("name").innerHTML = name;
-    document.getElementById("price").innerHTML = price;
-    document.getElementById("id").innerHTML = id;
-    document.getElementById("image").attributes.src.value = image;
+    fetch('http://localhost:3000/api/teddies/' + id) 
+    .then(function(response){
+        return response.json()
+    })
+    .then(function (produit){
+    
+                
+                //Récupération de l'image, du prix et du nom liés à l'Id
+                
+    
+                PagePanier = '<img class="Img_produit" src="' + produit.imageUrl + '">';
+                PagePanier = PagePanier + '<p class="prix">' + produit.price/100 + '€</p>';
+                PagePanier = PagePanier + '<h2 id="productName">' + produit.name + '</h2>';
+                PagePanier = PagePanier + '<p id="id">' + produit._id + '</p>';
+                PagePanier = PagePanier + '<p id="qty">' + qty + '</p>';
+    
+    
+    document.getElementById("products").innerHTML = PagePanier;
+
+})   
 }
