@@ -48,21 +48,21 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 
                 var selectedId = document.getElementById("IdProduit").value;
 
-                var paniers = []; 
+                var paniers = [];
 
                 //Si le panier contient quelque chose
                 if (localStorage.getItem('selectedTeddies') !== null) {
-                    JSON.parse(localStorage.getItem('selectedTeddies'));
+                    paniers = JSON.parse(localStorage.getItem('selectedTeddies'));
                 }
                 
                 let blnTrouve = false
 
                 //Parcourir le panier et y ajouter des produits 
-                for(let panier in paniers) {
-                    if(panier.id == selectedId) {
-                        panier.quantity++;
-                        blnTrouve=true;
-                        break;
+                for(i = 0; i < paniers.length; i++) {
+                    if (paniers[i].id === selectedId) {
+                      paniers[i].quantity++;
+                      blnTrouve = true;
+                      break;
                     }
                 }
 
