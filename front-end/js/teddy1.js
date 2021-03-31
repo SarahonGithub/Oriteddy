@@ -47,37 +47,33 @@ fetch('http://localhost:3000/api/teddies/' + id)
             document.getElementById("ajouterPanier").addEventListener("click", function() {
                 
                 var selectedId = document.getElementById("IdProduit").value;
-                let teddyObject = { id:selectedId, quantity:1 };
 
-                //Si le panier est vide
-                
-                if (localStorage.getItem('selectedTeddies') === null) {
-                    localStorage.setItem('selectedTeddies', JSON.stringify([teddyObject]));
+                let paniers = []; 
+
+                //Si le panier contient quelque chose
+                if (localStorage.getItem('selectedTeddies') !== null) {
+                    paniers = JSON.parse(localStorage.getItem('selectedTeddies'));
                 }
-
-                //Le panier contient au moins un article
-                else{
-                    
-                    var paniers = JSON.parse(localStorage.getItem('selectedTeddies'));
-                    let blnTrouve = false
+                
+                let blnTrouve = false
 
                 //Parcourir le panier et y ajouter des produits 
                 for(let panier in paniers) {
                     if(panier.id === selectedId) {
                         panier.quantity++;
-                        blnTrouve==true;
+                        blnTrouve=true;
                         break;
                     }
                 }
 
                 //L'article n'existe pas dans le panier
                 if(blnTrouve==false) {
+                    var teddyObject = { id:selectedId, quantity:1 };
                     paniers.push(teddyObject);
                 }
             
                 //Transformation en format JSON et envoi à la key du localStorage
                 localStorage.setItem('selectedTeddies', JSON.stringify(paniers));
-            }
 
              })
 })
