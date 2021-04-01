@@ -1,11 +1,10 @@
 PagePanier = '';
-
-let panier = (localStorage.getItem('selectedTeddies'))
+tableauPaniers = JSON.parse(localStorage.getItem('selectedTeddies'))
 //Parcourir le panier
-for (i = 0; i < panier.length; i++) {
+for (i = 0; i < tableauPaniers.length; i++) {
     
-    var id = panier[i].id;
-    var qty = panier[i].quantity;
+    var id = tableauPaniers[i].id;
+    var qty = tableauPaniers[i].quantity;
 
     fetch('http://localhost:3000/api/teddies/' + id) 
     .then(function(response){

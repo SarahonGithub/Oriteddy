@@ -62,7 +62,6 @@ fetch('http://localhost:3000/api/teddies/' + id)
                     if (paniers[i].id === selectedId) {
                       paniers[i].quantity++;
                       blnTrouve = true;
-                      break;
                     }
                 }
 
