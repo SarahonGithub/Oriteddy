@@ -1,4 +1,5 @@
-PagePanier = '';
+var PagePanier = '';
+var TotalPrice = '';
 tableauPaniers = JSON.parse(localStorage.getItem('selectedTeddies'))
 //Parcourir le panier
 for (i = 0; i < tableauPaniers.length; i++) {
@@ -21,9 +22,12 @@ for (i = 0; i < tableauPaniers.length; i++) {
                 PagePanier = PagePanier + '<h2 id="productName">' + produit.name + '</h2>';
                 PagePanier = PagePanier + '<p id="id">' + produit._id + '</p>';
                 PagePanier = PagePanier + '<p id="qty">' + qty + '</p>';
-    
-    
-    document.getElementById("products").innerHTML = PagePanier;
+                
+                document.getElementById("products").innerHTML += PagePanier;
 
+                var allPrice = [produit.price/100]
+                TotalPrice = '<p>' + allPrice.reduce + '</p>';
+                document.getElementById("totalPrice").innerHTML = TotalPrice;
 })   
 }
+
