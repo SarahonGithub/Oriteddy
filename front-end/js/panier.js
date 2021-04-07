@@ -1,8 +1,11 @@
 var PagePanier = '';
 var TotalPrice = '';
+var sumPrice = 0;
 tableauPaniers = JSON.parse(localStorage.getItem('selectedTeddies'))
 //Parcourir le panier
 for (i = 0; i < tableauPaniers.length; i++) {
+
+    
     
     var id = tableauPaniers[i].id;
     var qty = tableauPaniers[i].quantity;
@@ -22,12 +25,20 @@ for (i = 0; i < tableauPaniers.length; i++) {
                 PagePanier = PagePanier + '<h2 id="productName">' + produit.name + '</h2>';
                 PagePanier = PagePanier + '<p id="id">' + produit._id + '</p>';
                 PagePanier = PagePanier + '<p id="qty">' + qty + '</p>';
-                
+                PagePanier = PagePanier + '<button id="remove">Supprimer</button>';
                 document.getElementById("products").innerHTML += PagePanier;
-
-                var allPrice = [produit.price/100]
-                TotalPrice = '<p>' + allPrice.reduce + '</p>';
+                
+                sumPrice += (produit.price/100) * qty
+                TotalPrice = '<p>' + sumPrice + '</p>';
                 document.getElementById("totalPrice").innerHTML = TotalPrice;
+
+                document.getElementById("remove").addEventListener("click", function() {
+                    localStorage.removeItem("selectedTeddies"[i]);
+                })
+
 })   
 }
 
+
+
+    
