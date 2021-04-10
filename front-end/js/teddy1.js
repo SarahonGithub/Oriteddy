@@ -1,6 +1,6 @@
 //Récupération de l'Id
 
-var PageProduit = '';
+var productsPage = '';
 
 const url = new URL(window.location.href);
 const parameters = new URLSearchParams(url.search);
@@ -16,13 +16,13 @@ fetch('http://localhost:3000/api/teddies/' + id)
             //Récupération de l'image, du prix et du nom liés à l'Id
             
 
-            PageProduit = '<img class="Img_produit" src="' + produit.imageUrl + '">';
-            PageProduit = PageProduit + '<p class="prix">' + produit.price/100 + '€</p>';
-            PageProduit = PageProduit + '<h2 id="productName">' + produit.name + '</h2>';
-            PageProduit = PageProduit + '<button id="ajouterPanier">Ajouter au panier</button>';
-            PageProduit = PageProduit + '<input  type="hidden" name="produit" id="IdProduit" value=' + produit._id + '>';
+            productsPage = '<img class="Img_produit" src="' + produit.imageUrl + '">';
+            productsPage = productsPage + '<p class="prix">' + produit.price/100 + '€</p>';
+            productsPage = productsPage + '<h2 id="productName">' + produit.name + '</h2>';
+            productsPage = productsPage + '<button id="ajouterPanier">Ajouter au panier</button>';
+            productsPage = productsPage + '<input  type="hidden" name="produit" id="IdProduit" value=' + produit._id + '>';
               
-            document.getElementById('produit').innerHTML = PageProduit
+            document.getElementById('produit').innerHTML = productsPage
             
             
             //Récupération des couleurs des teddies
@@ -48,19 +48,19 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 
                 var selectedId = document.getElementById("IdProduit").value;
 
-                var paniers = [];
+                var baskets = [];
 
                 //Si le panier contient quelque chose
                 if (localStorage.getItem('selectedTeddies') !== null) {
-                    paniers = JSON.parse(localStorage.getItem('selectedTeddies'));
+                    baskets = JSON.parse(localStorage.getItem('selectedTeddies'));
                 }
                 
                 let blnTrouve = false
 
                 //Parcourir le panier et y ajouter des produits 
-                for(i = 0; i < paniers.length; i++) {
-                    if (paniers[i].id === selectedId) {
-                      paniers[i].quantity++;
+                for(i = 0; i < baskets.length; i++) {
+                    if (baskets[i].id === selectedId) {
+                      baskets[i].quantity++;
                       blnTrouve = true;
                     }
                 }
@@ -68,7 +68,7 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 //L'article n'existe pas dans le panier
                 if(blnTrouve==false) {
                     var teddyObject = {id: selectedId, quantity: 1};
-                    paniers.push(teddyObject);
+                    baskets.push(teddyObject);
                 }
             
                 //Transformation en format JSON et envoi à la key du localStorage
