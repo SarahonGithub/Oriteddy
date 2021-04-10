@@ -1,5 +1,6 @@
-let form = document.getElementById("ValidPurchase")
-form.addEventListener("click", function() {
+document.getElementById("form-submit").addEventListener("click", function() {
+
+let form = document.getElementById("form-contact")
 
     let getForm = new FormData(form)
     var body = {
@@ -20,6 +21,8 @@ for (i = 0; i < basketArray.length; i++) {
 }
 
 
+
+
     fetch('http://localhost:3000/api/order', {
     method: 'post',
     headers: {
@@ -33,4 +36,5 @@ for (i = 0; i < basketArray.length; i++) {
   })
   .catch(function (error) {
     console.log('Request failed', error);
-  });
+  })
+})
