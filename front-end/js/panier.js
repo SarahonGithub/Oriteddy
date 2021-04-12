@@ -39,15 +39,20 @@ Object.keys(basket).forEach(function (key) {
                     
     })
 
-    function deleteItem(id) {
-    Object.keys(basket).forEach(function (key) {
-        if(id == key) {
-            basket[key] -= 1;
-        }
-    })
-
-}
+    
     
 });
 
 
+
+
+function deleteItem(id) {
+    var arrayBasket = Object.keys(basket);
+    arrayBasket.forEach(function (key) {
+        if(id == key) {
+            arrayBasket.splice(key);
+            localStorage.setItem('selectedTeddies', JSON.stringify(arrayBasket));
+        }
+    })
+
+}
