@@ -34,24 +34,19 @@ Object.keys(basket).forEach(function (key) {
 
                     document.getElementById("remove").addEventListener("click", function() {
                         deleteItem(produit._id);
-                    })
-                    
-                    
+                    })     
     })
 
     
     
 });
 
-
-
-
 function deleteItem(id) {
-    var arrayBasket = Object.keys(basket);
-    arrayBasket.forEach(function (key) {
+    Object.keys(basket).forEach(function (key) {
         if(id == key) {
-            arrayBasket.splice(key);
-            localStorage.setItem('selectedTeddies', JSON.stringify(arrayBasket));
+            basket ={}
+            localStorage.setItem('selectedTeddies', JSON.stringify(basket));
+            document.location.reload();
         }
     })
 
