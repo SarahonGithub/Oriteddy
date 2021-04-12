@@ -1,41 +1,53 @@
 var basketPage = '';
 var totalPrice = '';
 var sumPrice = 0;
-basketArray = JSON.parse(localStorage.getItem('selectedTeddies'))
-//Parcourir le panier
-for (i = 0; i < basketArray.length; i++) {
+basket = JSON.parse(localStorage.getItem('selectedTeddies'))
 
-    
-    
-    var id = basketArray[i].id;
-    var qty = basketArray[i].quantity;
+//Objet.keys = Tableau contenant les id, clés de l'objet
+//forEach = éxécute la fonction sur chaque id, éléement de l'objets
+Object.keys(basket).forEach(function (key) {
 
-    fetch('http://localhost:3000/api/teddies/' + id) 
-    .then(function(response){
-        return response.json()
+    //Passage en paramètre de fetch de l'id et de sa quantité associée
+        fetch('http://localhost:3000/api/teddies/' + key) 
+        .then(function(response){
+            return response.json()
+        })
+        .then(function (produit){
+        
+                    
+                    //Récupération de l'image, du prix, du nom et de la quantité liés à l'Id
+                    basketPage = '<img class="Img_produit" src="' + produit.imageUrl + '">';
+                    basketPage = basketPage + '<p class="prix">' + produit.price/100 + '€</p>';
+                    basketPage = basketPage + '<h2 id="productName">' + produit.name + '</h2>';
+                    basketPage = basketPage + '<p id="id">' + produit._id + '</p>';
+                    basketPage = basketPage + '<p id="qty">' + basket[produit._id] + '</p>';
+                    basketPage = basketPage + '<button id="remove">Supprimer</button>';
+                    document.getElementById("products").innerHTML += basketPage;
+
+                    //qty = valeur associée à l'id qui est la clé de l'objet 
+                    var qty = basket[produit._id];
+
+
+                    sumPrice += (produit.price/100) * qty
+                    totalPrice = '<p>' + sumPrice + '</p>';
+                    document.getElementById("totalPrice").innerHTML = totalPrice;
+
+                    document.getElementById("remove").addEventListener("click", function() {
+                        deleteItem(produit._id);
+                    })
+                    
+                    
     })
-    .then(function (produit){
-    
-                
-                //Récupération de l'image, du prix et du nom liés à l'Id
-                
-    
-                basketPage = '<img class="Img_produit" src="' + produit.imageUrl + '">';
-                basketPage = basketPage + '<p class="prix">' + produit.price/100 + '€</p>';
-                basketPage = basketPage + '<h2 id="productName">' + produit.name + '</h2>';
-                basketPage = basketPage + '<p id="id">' + produit._id + '</p>';
-                basketPage = basketPage + '<p id="qty">' + qty + '</p>';
-                basketPage = basketPage + '<button id="remove">Supprimer</button>';
-                document.getElementById("products").innerHTML += basketPage;
-                
-                sumPrice += (produit.price/100) * qty
-                totalPrice = '<p>' + sumPrice + '</p>';
-                document.getElementById("totalPrice").innerHTML = totalPrice;
 
-                document.getElementById("remove").addEventListener("click", function() {
-                    localStorage.removeItem("selectedTeddies"[i]);
-                })
+    function deleteItem(id) {
+    Object.keys(basket).forEach(function (key) {
+        if(id == key) {
+            basket[key] -= 1;
+        }
+    })
 
-})   
 }
+    
+});
+
 

@@ -48,7 +48,7 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 
                 var selectedId = document.getElementById("IdProduit").value;
 
-                var baskets = [];
+                var baskets = {};
 
                 //Si le panier contient quelque chose
                 if (localStorage.getItem('selectedTeddies') !== null) {
@@ -57,22 +57,25 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 
                 let blnTrouve = false
 
-                //Parcourir le panier et y ajouter des produits 
-                for(i = 0; i < baskets.length; i++) {
-                    if (baskets[i].id === selectedId) {
-                      baskets[i].quantity++;
-                      blnTrouve = true;
-                    }
-                }
+                //Objet.keys = Tableau contenant les id, clés de l'objet
+                //forEach = éxécute la fonction sur chaque id, éléement de l'objet
+                Object.keys(baskets).forEach(function (key) {
+                //Si l'id sélectionné existe déjà dans une clé
+                    if (key === selectedId) {
+                        //Incrémenter la valeur associée à baskets[key] 
+                        baskets[key]++;
+                        blnTrouve = true;
+                      }
+                });
 
                 //L'article n'existe pas dans le panier
                 if(blnTrouve==false) {
-                    var teddyObject = {id: selectedId, quantity: 1};
-                    baskets.push(teddyObject);
+                    //Associer à la clé la valeur 1
+                     baskets[selectedId] = 1;
                 }
             
-                //Transformation en format JSON et envoi à la key du localStorage
-                localStorage.setItem('selectedTeddies', JSON.stringify(paniers));
+                //Transformation de l'objet baskets en format JSON et envoi à la key du localStorage
+                localStorage.setItem('selectedTeddies', JSON.stringify(baskets));
 
              })
 })
@@ -80,8 +83,3 @@ fetch('http://localhost:3000/api/teddies/' + id)
     .catch(function(error) {
         alert(error)
 })
-
-
-
-
-
