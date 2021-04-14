@@ -1,16 +1,15 @@
 //Ecoute du btn "valider le formulaire"
-document.getElementById("form-submit").addEventListener("click", function(event) {
+const myForm = document.getElementById("form-contact")
+myForm.addEventListener("click", function(event) {
 
     event.preventDefault();
+
+    const formData = new FormData(this);
 
     //Récupération de l'objet contact et du tableau des produits(id)
     let body = {
         contact : {
-            firstName : document.getElementById("firstName").value,
-            lastName : document.getElementById("lastName").value,
-            adress : document.getElementById("adress").value,
-            city : document.getElementById("city").value,
-            email : document.getElementById("email").value
+            formData
     },
     products : []
 }
@@ -28,12 +27,10 @@ for (i = 0; i < basketArray.length; i++) {
         'Content-type': 'application/json; charset=UTF-8'
       },
     body: body
-}).then(function (response) {
+}).then (response => {
     return response.json();
-}).then function(json)
-console.log(json)
-
+})
   .catch(function (error) {
-    console.log('Request failed', error);
+    console.log(error);
   })
 })

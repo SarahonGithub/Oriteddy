@@ -58,7 +58,7 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 let blnTrouve = false
 
                 //Objet.keys = Tableau contenant les id, clés de l'objet
-                //forEach = éxécute la fonction sur chaque id, éléement de l'objet
+                //forEach = éxécute la fonction sur chaque id, éléement de l'objets
                 Object.keys(baskets).forEach(function (key) {
                 //Si l'id sélectionné existe déjà dans une clé
                     if (key === selectedId) {
