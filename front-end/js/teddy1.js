@@ -57,12 +57,8 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 
                 let blnTrouve = false
 
-                //Objet.keys = Tableau contenant les id, clés de l'objet
-                //forEach = éxécute la fonction sur chaque id, éléement de l'objets
                 Object.keys(baskets).forEach(function (key) {
-                //Si l'id sélectionné existe déjà dans une clé
                     if (key === selectedId) {
-                        //Incrémenter la valeur associée à baskets[key] 
                         baskets[key]++;
                         blnTrouve = true;
                       }
@@ -70,11 +66,10 @@ fetch('http://localhost:3000/api/teddies/' + id)
 
                 //L'article n'existe pas dans le panier
                 if(blnTrouve==false) {
-                    //Associer à la clé la valeur 1
                      baskets[selectedId] = 1;
                 }
             
-                //Transformation de l'objet baskets en format JSON et envoi à la key du localStorage
+                //Transformation en format JSON et envoi à la key du localStorage
                 localStorage.setItem('selectedTeddies', JSON.stringify(baskets));
 
              })

@@ -1,24 +1,26 @@
 //Ecoute du btn "valider le formulaire"
-const myForm = document.getElementById("form-contact")
-myForm.addEventListener("click", function(event) {
+document.getElementById("form-submit").addEventListener("click", function(event) {
 
     event.preventDefault();
-
-    const formData = new FormData(this);
 
     //Récupération de l'objet contact et du tableau des produits(id)
     let body = {
         contact : {
-            formData
+            firstName : firstName.value,
+            lastName : lastName.value,
+            address : address.value,
+            city : city.value,
+            email : email.value
     },
     products : []
 }
 
 let basketArray = JSON.parse(localStorage.getItem('selectedTeddies'))
 //Parcourir le panier
-for (i = 0; i < basketArray.length; i++) {
-    body.products.push(tableauPaniers[i].id)
-}
+
+var id = Object.keys(basketArray)
+
+body.products.push(id)
 
 //Requête POST pour envoyer le formulaire et le panier au serveur
     fetch('http://localhost:3000/api/teddies/order', {
@@ -26,10 +28,16 @@ for (i = 0; i < basketArray.length; i++) {
     headers: {
         'Content-type': 'application/json; charset=UTF-8'
       },
-    body: body
+    body: JSON.stringify(body)
 }).then (response => {
     return response.json();
 })
+.then(function(data){
+    localStorage.setItem('orderData', JSON.stringify(data));
+    localStorage.getItem('orderData')
+})
+
+
   .catch(function (error) {
     console.log(error);
   })
