@@ -15,6 +15,8 @@ document.getElementById("form-submit").addEventListener("click", function(event)
     products : []
 }
 
+
+
 let basketArray = JSON.parse(localStorage.getItem('selectedTeddies'))
 //Parcourir le panier
 
@@ -29,12 +31,16 @@ body.products.push(id)
         'Content-type': 'application/json; charset=UTF-8'
       },
     body: JSON.stringify(body)
+
+
 }).then (response => {
     return response.json();
 })
 .then(function(data){
     localStorage.setItem('orderData', JSON.stringify(data));
     localStorage.getItem('orderData')
+    const orderId = uuid(data);
+    console.log(orderId)
 })
 
 

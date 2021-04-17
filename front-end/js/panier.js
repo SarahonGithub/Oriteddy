@@ -27,13 +27,19 @@ Object.keys(basket).forEach(function (key) {
                     //qty = valeur associée à l'id qui est la clé de l'objet 
                     var qty = basket[produit._id];
 
+                    //Supression du ou des produits de même id 
+                    document.getElementById("remove").addEventListener("click", function() {
+                        deleteItem(produit._id)
+                    })
+
 
                     sumPrice += (produit.price/100) * qty
                     totalPrice = '<p>' + sumPrice + '</p>';
                     document.getElementById("totalPrice").innerHTML = totalPrice;
 
-                    document.getElementById("remove").addEventListener("click", function() {
-                        deleteItem(produit._id);
+                    //Suppression de tout le panier
+                    document.getElementById("removeAll").addEventListener("click", function() {
+                        deleteAll(produit._id);
                     })     
     })
 
@@ -41,7 +47,20 @@ Object.keys(basket).forEach(function (key) {
     
 });
 
+//Supression du ou des produits de même id
 function deleteItem(id) {
+    Object.keys(basket).forEach(function (key) {
+        if(id == key) {
+            delete basket[key]
+            // basket.splice(basket.indexOf('key'), 1) 
+            localStorage.setItem('selectedTeddies', JSON.stringify(basket));
+            document.location.reload();
+        }
+    })
+}
+
+//Suppression de tout le panier
+function deleteAll(id) {
     Object.keys(basket).forEach(function (key) {
         if(id == key) {
             basket ={}
@@ -51,3 +70,4 @@ function deleteItem(id) {
     })
 
 }
+
