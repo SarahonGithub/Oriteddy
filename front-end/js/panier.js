@@ -16,12 +16,14 @@ Object.keys(basket).forEach(function (key) {
         
                     
                     //Récupération de l'image, du prix, du nom et de la quantité liés à l'Id
-                    basketPage = '<img class="Img_produit" src="' + produit.imageUrl + '">';
+                    basketPage = '<div>'
+                    basketPage = basketPage + '<img class="Img_produit" src="' + produit.imageUrl + '">';
                     basketPage = basketPage + '<p class="prix">' + produit.price/100 + '€</p>';
                     basketPage = basketPage + '<h2 id="productName">' + produit.name + '</h2>';
                     basketPage = basketPage + '<p id="id">' + produit._id + '</p>';
                     basketPage = basketPage + '<p id="qty">' + basket[produit._id] + '</p>';
                     basketPage = basketPage + '<button id="remove">Supprimer</button>';
+                    basketPage = basketPage + '</div>'
                     document.getElementById("products").innerHTML += basketPage;
 
                     //qty = valeur associée à l'id qui est la clé de l'objet 
@@ -39,7 +41,7 @@ Object.keys(basket).forEach(function (key) {
 
                     //Suppression de tout le panier
                     document.getElementById("removeAll").addEventListener("click", function() {
-                        deleteAll(produit._id);
+                        deleteAll();
                     })     
     })
 
@@ -60,14 +62,10 @@ function deleteItem(id) {
 }
 
 //Suppression de tout le panier
-function deleteAll(id) {
-    Object.keys(basket).forEach(function (key) {
-        if(id == key) {
+function deleteAll() {
             basket ={}
             localStorage.setItem('selectedTeddies', JSON.stringify(basket));
             document.location.reload();
         }
-    })
 
-}
 

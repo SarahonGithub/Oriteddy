@@ -39,9 +39,8 @@ body.products.push(id)
 .then(function(data){
     localStorage.setItem('orderData', JSON.stringify(data));
     localStorage.getItem('orderData')
-    const orderId = uuid(data);
-    console.log(orderId)
-})
+
+}).then(function) uuid();
 
 
   .catch(function (error) {
