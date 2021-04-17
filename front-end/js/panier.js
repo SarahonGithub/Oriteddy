@@ -1,7 +1,7 @@
 var basketPage = '';
 var totalPrice = '';
 var sumPrice = 0;
-basket = JSON.parse(localStorage.getItem('selectedTeddies'))
+var basket = JSON.parse(localStorage.getItem('selectedTeddies'))
 
 //Objet.keys = Tableau contenant les id, clés de l'objet
 //forEach = éxécute la fonction sur chaque id, éléement de l'objets
