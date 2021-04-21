@@ -39,16 +39,16 @@ body.products.push(id)
 .then(function(data){
     localStorage.setItem('orderData', JSON.stringify(data));
     localStorage.getItem('orderData')
+    document.location="commande.html";
 })
 
 
-    
+
   .catch(function (error) {
     console.log(error);
   })
 
 
-    window.location("https://sarahongithub.github.io/Oriteddy/front-end/commande.html");
-  
+  e.preventDefault()
 
 })
