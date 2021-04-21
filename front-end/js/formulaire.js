@@ -47,7 +47,8 @@ body.products.push(id)
     console.log(error);
   })
 
-e.preventDefault();
-    window.location.assign("https://sarahongithub.github.io/Oriteddy/front-end/commande.html");
+  function redirection () {
+    window.location("https://sarahongithub.github.io/Oriteddy/front-end/commande.html");
+  }
 
 })
