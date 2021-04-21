@@ -1,6 +1,7 @@
 //Ecoute du btn "valider le formulaire"
-document.getElementById("form-submit").addEventListener("click", function() {
+document.getElementById("form-submit").addEventListener("click", function(e) {
 
+  
 
     //Récupération de l'objet contact et du tableau des produits(id)
     let body = {
@@ -40,6 +41,9 @@ body.products.push(id)
     localStorage.getItem('orderData')
 })
 
+e.preventDefault();
+    window.location.assign("https://sarahongithub.github.io/Oriteddy/front-end/commande.html");
+    
   .catch(function (error) {
     console.log(error);
   })
