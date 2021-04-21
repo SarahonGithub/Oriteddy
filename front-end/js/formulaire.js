@@ -1,5 +1,5 @@
 //Ecoute du btn "valider le formulaire"
-document.getElementById("form-submit").addEventListener("click", function(event) {
+document.getElementById("form-submit").addEventListener("click", function() {
 
 
 
