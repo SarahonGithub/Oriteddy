@@ -41,10 +41,13 @@ body.products.push(id)
     localStorage.getItem('orderData')
 })
 
-e.preventDefault();
-    window.location.assign("https://sarahongithub.github.io/Oriteddy/front-end/commande.html");
+
     
   .catch(function (error) {
     console.log(error);
   })
+
+e.preventDefault();
+    window.location.assign("https://sarahongithub.github.io/Oriteddy/front-end/commande.html");
+
 })
