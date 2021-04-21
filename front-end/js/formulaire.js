@@ -1,7 +1,7 @@
 //Ecoute du btn "valider le formulaire"
 document.getElementById("form-submit").addEventListener("click", function(event) {
 
-    event.preventDefault();
+
 
     //Récupération de l'objet contact et du tableau des produits(id)
     let body = {

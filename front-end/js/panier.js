@@ -8,7 +8,7 @@ var basket = JSON.parse(localStorage.getItem('selectedTeddies'))
 Object.keys(basket).forEach(function (key) {
 
     //Passage en paramètre de fetch de l'id et de sa quantité associée
-        fetch('http://localhost:3000/api/teddies/' + key) 
+        fetch('http://localhost:3000/api/teddies/' + key)
         .then(function(response){
             return response.json()
         })
