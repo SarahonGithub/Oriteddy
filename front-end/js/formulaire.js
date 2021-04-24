@@ -1,9 +1,49 @@
+/*var myForm = document.getElementById("form-contact")
+myForm.addEventListener("submit", function(e) {
+
+}*/
+
+
 //Ecoute du btn "valider le formulaire"
 document.getElementById("form-submit").addEventListener("click", function(e) {
 
   
 
+  let firstName = document.getElementById("firstName");
+  let myRegex = /^[a-zA-Z-\s]+$/;
+
+  let lastName = document.getElementById("lastName");
+  let myRegex2 = /^[a-zA-Z-\s]+$/;
+
+ /* let adress = document.getElementById("adress");
+  let myRegex3 = /^([0-9]) ([a-zA-Z])$/;*/
+
+ /* let city = document.getElementById("city");
+  let myRegex4 = ;*/
+
+
+/*
+
+if (firstName.value.trim() = "") {
+  let myError = document.getElementById('error');
+  myError.innerHTML = "Le champs est requis";
+  myError.style.color = "red";
+  e.preventDefault();
+}
+
+else if (myRegex.test(firstName.value) == false) {
+  let myError = document.getElementById('error');
+  myError.innerHTML = "Le mot doit comporter des lettres et des tireets uniquement";
+  myError.style.color = "red";
+  e.preventDefault();
+}
+
+*/
+
     //Récupération de l'objet contact et du tableau des produits(id)
+
+    if (myRegex.test(firstName.value) == true && myRegex2.test(lastName.value) == true /*&& myRegex3.test(adress.value)*/) {
+    
     let body = {
         contact : {
             firstName : firstName.value,
@@ -39,7 +79,11 @@ body.products.push(id)
 .then(function(data){
     localStorage.setItem('orderData', JSON.stringify(data));
     localStorage.getItem('orderData')
+
+
+    if(localStorage.getItem('orderData') !== null ) {
     document.location="commande.html";
+    }
 })
 
 
@@ -49,6 +93,8 @@ body.products.push(id)
   })
 
 
-  e.preventDefault()
+ e.preventDefault()
+
+}
 
 })
