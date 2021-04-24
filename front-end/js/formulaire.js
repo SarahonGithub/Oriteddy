@@ -10,16 +10,16 @@ document.getElementById("form-submit").addEventListener("click", function(e) {
   
 
   let firstName = document.getElementById("firstName");
-  let myRegex = /^[a-zA-Z-\s]+$/;
 
   let lastName = document.getElementById("lastName");
-  let myRegex2 = /^[a-zA-Z-\s]+$/;
 
- /* let adress = document.getElementById("adress");
-  let myRegex3 = /^([0-9]) ([a-zA-Z])$/;*/
+  let address = document.getElementById("address")
 
- /* let city = document.getElementById("city");
-  let myRegex4 = ;*/
+  let city = document.getElementById("city")
+
+  let email = document.getElementById("email");
+
+  let myRegex = /^(([^<>()\[\]\.,;:\s@"]+(\.[^<>()\[\]\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 
 /*
@@ -42,7 +42,7 @@ else if (myRegex.test(firstName.value) == false) {
 
     //Récupération de l'objet contact et du tableau des produits(id)
 
-    if (myRegex.test(firstName.value) == true && myRegex2.test(lastName.value) == true /*&& myRegex3.test(adress.value)*/) {
+    if (firstName.value != "" && lastName.value != "" && myRegex.test(email.value) == true && address.value != "" && city.value != "") {
     
     let body = {
         contact : {

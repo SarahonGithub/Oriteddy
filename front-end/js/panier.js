@@ -22,7 +22,7 @@ Object.keys(basket).forEach(function (key) {
                     basketPage = basketPage + '<h2 id="productName">' + produit.name + '</h2>';
                     basketPage = basketPage + '<p id="id">' + produit._id + '</p>';
                     basketPage = basketPage + '<p id="qty">' + basket[produit._id] + '</p>';
-                    basketPage = basketPage + '<button id="remove">Supprimer</button>';
+                    basketPage = basketPage + '<button id="remove'+produit._id+'">Supprimer</button>';
                     basketPage = basketPage + '</div>'
                     document.getElementById("products").innerHTML += basketPage;
 
@@ -30,7 +30,7 @@ Object.keys(basket).forEach(function (key) {
                     var qty = basket[produit._id];
 
                     //Supression du ou des produits de même id 
-                    document.getElementById("remove").addEventListener("click", function() {
+                    document.getElementById("remove"+produit._id).addEventListener("click", function() {
                         deleteItem(produit._id)
                     })
 
