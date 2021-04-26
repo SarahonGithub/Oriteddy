@@ -13,29 +13,59 @@
 <body>
 
 <header class="header">
-  <a href="index.html"><i class="fas fa-arrow-left arrow"></i></a>
+  <div class="icons"><a href="index.html"><i class="fas fa-arrow-left arrow" id="arrow"></i></a>
+  <a href="Panier.html"><i class="fas fa-shopping-basket" id="basket"></i></a></div>
   <img src="http://127.0.0.1:3000/images/logo.jpeg" alt="Logo" class="logo">
-  <div class="VoirPanier"><a href="Panier.html">Voir mon panier</a>
-  </div>
+  
 </header>
 
 <main>
 
-    <section>
-
-        <h1 id="erreur"></h1>
+    <section class="productPage">
 
 
         <div id="produit"></div>
 
         <div id="ChoixCouleurs">
+          <p class="colors">Couleurs</p>
           <select id="Couleurs">
           </select>
         </div>
-
+        <button id="ajouterPanier">Ajouter au panier</button>
     </section>
 
     </main>
+
+    <footer>
+      <img src="http://127.0.0.1:3000/images/Oriteddy.jpeg">
+      <div class="footerDiv">
+      <div class="footer">
+        <p class="footer_title">A propos</p>
+        <ul>
+            <li class="footer_link">
+                <a href="#">Fonctionnement du site</a>
+            </li>
+            <li class="footer_link">
+                <a href="#">Conditions générales de vente</a>
+            </li>
+            <li  class="footer_link">
+                <a href="#">Données et confidentialités</a>
+            </li>
+        </ul>
+    </div>
+    <div class="footer">
+      <p class="footer_title">Assitance</p>
+      <ul>
+          <li class="footer_link">
+              <a href="#">Centre d'aide</a>
+          </li>
+          <li class="footer_link">
+              <a href="#">Nous contacter</a>
+          </li>
+      </ul>
+  </div>
+  </div>
+    </footer>
 
     <script src="js/teddy1.js"></script>
     </body>

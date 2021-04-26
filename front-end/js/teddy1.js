@@ -15,11 +15,9 @@ fetch('http://localhost:3000/api/teddies/' + id)
             
             //Récupération de l'image, du prix et du nom liés à l'Id
             
-
-            productsPage = '<img class="Img_produit" src="' + produit.imageUrl + '">';
-            productsPage = productsPage + '<p class="prix">' + produit.price/100 + '€</p>';
-            productsPage = productsPage + '<h2 id="productName">' + produit.name + '</h2>';
-            productsPage = productsPage + '<button id="ajouterPanier">Ajouter au panier</button>';
+            productsPage = '<h2 id="productName">' + produit.name + '</h2>';
+            productsPage = productsPage + '<img class="productImg" src="' + produit.imageUrl + '">';
+            productsPage = productsPage + '<p class="price">' + produit.price/100 + '€</p>';
             productsPage = productsPage + '<input  type="hidden" name="produit" id="IdProduit" value=' + produit._id + '>';
               
             document.getElementById('produit').innerHTML = productsPage

@@ -5,46 +5,71 @@
 
 main {
     background-color: #ededed;
+    padding-bottom: 1rem;
 }
 
 .logo {
-    width: 11rem;
+    width: 9rem;
     margin: auto;
     display: block;
 }
 
 .header {
-    background-color: #ece4b6;
+    background-color: #99E2D0;
 }
 
 h1 {
-    padding: 2.5rem 1.5rem;
+    padding: 1.5rem 1.5rem 0.5rem 1.8rem;
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+p {
+    font-size: 0.9rem;
 }
 
 .Img_produit {
-    width: 20rem;
+    width: 50%;
+    border-radius: 0.5rem 0 0 0.5rem;
 }
 
-li {
+#productsList{
     text-align: center;
     background-color: white;
-    margin: 2rem;
-    padding: 1rem;
+    margin: 2rem 3rem;
+    padding: 0.5rem;
     list-style: none;
     box-shadow: 0 5px 13px #B9B9B9;
+    border-radius: 1rem;
+}
+
+#productsList:hover {
+    box-shadow: 0 5px 13px black;
 }
 
 a {
     text-decoration: none;
     color: black;
+    display: flex;
+}
+
+.homeDescr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
 }
 
 .prix {
     margin: 1rem 0 0.5rem 0;
 }
 
-button {
-    background-color: #ece4b6;
+#ajouterPanier {
+    background-color: #99E2D0;
     border-radius: 1rem;
     font-size: 1.2rem;
     font-weight: bold;
@@ -53,4 +78,190 @@ button {
     box-shadow: 0 5px 13px #B9B9B9;
     margin: 1rem;
     cursor: pointer;
+}
+
+.VoirPanier {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    justify-content: flex-end;
+}
+
+footer {
+    background-color: #3B3B3B;
+}
+
+#Oriteddy {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer_link a {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.footer_title {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.footerDiv {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+li {
+    list-style: none;
+}
+
+/* Page panier */
+
+#home {
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.flex {
+    display: flex;
+}
+
+#descr {
+    padding: 0.5rem;
+}
+
+#id {
+    font-size: 0.8rem;
+}
+
+#priceQty {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 1rem 0 0 0;
+}
+
+.remove {
+    border-radius: 0rem;
+    margin: 1rem 0 0 0;
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: white;
+}
+
+#totalPrice {
+    display: flex;
+    padding-right: 1rem;
+    padding-top: 3rem;
+    font-size: 1.5rem;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.totalPrice {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.submit_basket {
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+    background-image: linear-gradient(#99E2D0, #77cee3);
+    border-radius: 1.5rem;
+    border: none;
+    box-shadow: 0 5px 13px #b9b9b9;
+    margin: 1rem 0;  
+}
+
+.submit_basket:hover {
+    box-shadow: 0 5px 13px black;
+}
+
+.basketBtns {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1rem 1rem 1rem;
+}
+
+#removeAll {
+    margin: 1.5rem 0;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: #ededed;
+}
+
+.product {
+    background-color: white;
+    margin: 1rem;
+}
+
+#basket {
+    font-size: 1.5rem;
+}
+
+#arrow {
+    font-size: 1.3rem;
+}
+
+.colors {
+    margin: 0.5rem;
+}
+
+#produit {
+    text-align: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 13px #d7d7d7;
+}
+
+.emptyBasket {
+    margin: auto;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Page produits */
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productImg {
+    width: 100%;
+}
+
+#ajouterPanier {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    background-image: linear-gradient(#99E2D0, #77cee3);
+    border-radius: 1.5rem;
+    border: none;
+    box-shadow: 0 5px 13px #b9b9b9;
+    margin: 1rem;
+}
+
+#ajouterPanier:hover {
+    box-shadow: 0 5px 13px black;
+}
+
+.productPage {
+    text-align: center;
+    padding:1rem;
+}
+
+#productName {
+    font-weight: bold;
+    text-align: start;
+    font-size: 1.5rem;
 }

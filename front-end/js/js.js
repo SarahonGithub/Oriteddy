@@ -7,9 +7,11 @@ request.onreadystatechange = function() {
             const teddy = response[i];
             console.log(teddy);
              
-            liste = liste + '<li><a href="Page_produit.html?id=' + teddy._id + '"><img class="Img_produit" src="' + teddy.imageUrl + '">';
-            liste = liste + '<p class="prix">' + teddy.price/100 + '€</p>';
+            liste = liste + '<li id="productsList"><a href="Page_produit.html?id=' + teddy._id + '"><img class="Img_produit" src="' + teddy.imageUrl + '">';
+            liste = liste + '<div class="homeDescr">'
             liste = liste + '<h2>' + teddy.name + '</h2>';
+            liste = liste + '<p class="price">' + teddy.price/100 + '€</p>';
+            liste = liste + '</div>'
             liste = liste + '</a>';
             liste = liste + '</li>';
         }
