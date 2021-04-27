@@ -28,3 +28,46 @@ main {
     cursor: pointer;
 }
 
+.icons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productImg {
+    width: 100%;
+}
+
+#ajouterPanier {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    background-image: linear-gradient(#99E2D0, #77cee3);
+    border-radius: 1.5rem;
+    border: none;
+    box-shadow: 0 5px 13px #b9b9b9;
+    margin: 1rem;
+}
+
+#ajouterPanier:hover {
+    box-shadow: 0 5px 13px black;
+}
+
+.productPage {
+    text-align: center;
+    padding:1rem;
+}
+
+#productName {
+    font-weight: bold;
+    text-align: start;
+    font-size: 1.5rem;
+}
+
+
+@media screen and (min-width: 900px){
+    .productImg {
+        width: 50%;
+    }
+    .price {
+        font-size: 1.5rem;
+    }
+}

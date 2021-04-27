@@ -8,7 +8,7 @@ request.onreadystatechange = function() {
             console.log(teddy);
              
             liste = liste + '<li id="productsList"><a href="Page_produit.html?id=' + teddy._id + '"><img class="Img_produit" src="' + teddy.imageUrl + '">';
-            liste = liste + '<div class="homeDescr">'
+            liste = liste + '<div id="homeDescr'+teddy._id+'" class="homeDescr">'
             liste = liste + '<h2>' + teddy.name + '</h2>';
             liste = liste + '<p class="price">' + teddy.price/100 + '€</p>';
             liste = liste + '</div>'
