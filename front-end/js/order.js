@@ -19,7 +19,7 @@ Object.keys(basket).forEach(function (key) {
 
             sumPrice += price * qty
             totalPrice = '<p>PRIX TOTAL : ' + sumPrice + ' euros</p>';
-            document.getElementById("totalPrice").innerHTML = totalPrice;
+            document.getElementById("orderPrice").innerHTML = totalPrice;
         })
     })
 

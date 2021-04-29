@@ -128,6 +128,10 @@ li {
     display: flex;
 }
 
+.basketImg {
+    width: 50%;
+}
+
 #descr {
     padding: 0.5rem;
 }
@@ -234,9 +238,58 @@ li {
 a {
         flex-direction: column;
     }
+
+/* Formulaire */
+
+    .orderMain {
+        padding: 1rem;
+    }
+
+    form {
+        padding: 1rem;
+    }
+
+    form div {
+        padding-top: 1rem;
+    }
+
+    .form-adress {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #form-submit {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+    }
+
 /* Desktop */
 
 @media screen and (min-width: 900px){
+
+    .basketMain {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "teddies prix"
+                              "teddies commander"
+                              "teddies .";
+                              
+    }
+
+    #products {
+        grid-row: 1/ span 3;
+    }
+
+    #totalPrice {
+        grid-area: prix;
+    }
+
+    .basketBtns {
+        grid-area: prix;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
 
     #teddies {
         display: grid;
