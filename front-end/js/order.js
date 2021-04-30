@@ -33,4 +33,4 @@ Object.keys(orderData)
 var nameData = orderData.contact["firstName"]
 
 var orderConfirmation = document.getElementById("idOrder")
-orderConfirmation.innerHTML = '<h1>Merci pour votre commande ' + nameData + ' !</h1><p>IDENTIFIANT DE LA COMMANDE : ' + orderId + '</p>'
+orderConfirmation.innerHTML = '<h1>Merci pour votre commande ' + nameData + ' !</h1><p class="orderId">IDENTIFIANT DE LA COMMANDE : ' + orderId + '</p>'

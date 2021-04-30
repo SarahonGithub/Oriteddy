@@ -1,5 +1,5 @@
 i {
-    margin: 1rem;
+    margin: 2rem;
 }
 
 main {
@@ -60,6 +60,7 @@ main {
     font-weight: bold;
     text-align: start;
     font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 

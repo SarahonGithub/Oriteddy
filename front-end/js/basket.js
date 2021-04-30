@@ -1,10 +1,7 @@
-
-
 var basketPage = '';
 var totalPrice = '';
 var sumPrice = 0;
 var baskets = JSON.parse(localStorage.getItem('selectedTeddies'))
-var localStorage = localStorage.getItem('selectedTeddies')
 
 
 
@@ -30,25 +27,18 @@ Object.keys(baskets).forEach(function (key) {
                     basketPage = basketPage + '<h2 id="productName">' + produit.name + '</h2>';
                     basketPage = basketPage + '<p id="id">' + produit._id + '</p>';
                     basketPage = basketPage + '<p id="qty">Quantité : ' + baskets[produit._id] + '</p>';
-                    
                     basketPage = basketPage + '<div id="priceQty">'
-                    basketPage = basketPage + '<button class="remove" id="remove'+produit._id+'">Supprimer</button>';
+                    basketPage = basketPage + '<button class="remove" onclick="deleteItem(\''+ produit._id+'\')">Supprimer</button>';
                     basketPage = basketPage + '<p class="price">' + produit.price/100 + '€</p>';
                     basketPage = basketPage + '</div>'
                     basketPage = basketPage + '</div>'
-                    basketPage = basketPage + '</div>'
-                    
-                    
+                    basketPage = basketPage + '</div>'           
                     basketPage = basketPage + '</div>'
                     document.getElementById("products").innerHTML += basketPage; 
 
                     //qty = valeur associée à l'id qui est la clé de l'objet 
                     var qty = baskets[produit._id];
 
-                    //Supression du ou des produits de même id 
-                    document.getElementById("remove"+produit._id).addEventListener("click", function() {
-                        deleteItem(produit._id)
-                    })
 
 
                     sumPrice += (produit.price/100) * qty
@@ -62,4 +52,3 @@ Object.keys(baskets).forEach(function (key) {
     })
     
 });
-        

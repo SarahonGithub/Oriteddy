@@ -42,7 +42,7 @@ function deleteItem(id) {
 
 //Suppression de tout le panier
 function deleteAll() {
-            baskets ={}
+            baskets ={};
             localStorage.setItem('selectedTeddies', JSON.stringify(baskets));
             document.location.reload();
         }

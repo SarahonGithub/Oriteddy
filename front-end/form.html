@@ -12,26 +12,43 @@
 
 <body>
   
-  <header class="header"> 
+  <header class="header" id="formHeader">
+    
+    <div class="headerIcons">
     <a href="index.html"><i class="fas fa-home" id="home"></i></a>
-    <img  src="http://127.0.0.1:3000/images/logo.jpeg" alt="Logo" class="logo">
+    <a href="basket.html" id="returnBasket"><i class="fas fa-arrow-left arrow" id="arrow"></i>Retour au panier</a></div>
+    <img  src="http://127.0.0.1:3000/images/logo.jpeg" alt="Logo" class="logo" id="formLogo">
   </header>
 
-  <main class="basketMain">
-    <h1>Mon panier</h1>
-    <div id="products">
-    </div>
-    
-    
-    
-    <div id="totalPrice">
-      <p class="emptyBasket">Votre panier est vide</p>
-    </div>
+  <main>
 
-    <div class="basketBtns">
-      <button id="removeAll">Vider le panier</button>
-      <button class="submit_basket"><a href="formulaire.html">Commander</a></button>
-  </div>
+    <h1 class="data">Mes données</h1>
+
+<form action="" method="post" id="form-contact">
+    <div class="form-name">
+      <label for="fisrtName">Entrez votre prénom</label>
+      <input type="text" name="firstName" id="firstName">
+      <br>
+      <span id="error"></span>
+      <label for="lastName">Entrez votre nom</label>
+      <input type="text" name="lastName" id="lastName">
+    </div>
+    <div class="form-adress">
+        <label for="adress">Entrez votre adresse</label> 
+        <input type="address" name="address" id="address">
+        <label for="city">Enter your city</label> 
+        <input type="city" name="city" id="city">
+    </div>
+    <div class="form-example">
+      <label for="email">Entrez votre email</label>
+      <input type="email" name="email" id="email">
+    </div>
+    <div class="form-example">
+      <input type="submit" value="Valider la commande!" id="form-submit">
+    </div>
+    <div id="alert"></div>
+  </form>
+  
   </main>
 
   <footer>
@@ -64,7 +81,9 @@
 </div>
   </footer>
 
-  <script src="js/basket.js"></script>
+  <script src="js/form.js"></script>
   <script src="js/function.js"></script>
 
-</body>
+  </body>
+
+  

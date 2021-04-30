@@ -16,7 +16,12 @@ main {
 
 .header {
     background-color: #99E2D0;
+    display: flex;
 }
+
+.space {
+        padding: 2.5rem;
+    }
 
 h1 {
     padding: 1.5rem 1.5rem 0.5rem 1.8rem;
@@ -82,10 +87,7 @@ a {
 }
 
 .VoirPanier {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    justify-content: flex-end;
+    padding: 2rem;
 }
 
 footer {
@@ -120,7 +122,7 @@ li {
 /* Page panier */
 
 #home {
-    padding: 1rem;
+    padding: 2rem;
     font-size: 1.5rem;
 }
 
@@ -175,7 +177,7 @@ li {
     font-size: 1.5rem;
 }
 
-.submit_basket {
+.basketBtn {
     font-size: 1.2rem;
     padding: 1rem 1.5rem;
     background-image: linear-gradient(#99E2D0, #77cee3);
@@ -185,7 +187,7 @@ li {
     margin: 1rem 0;  
 }
 
-.submit_basket:hover {
+.basketBtn:hover {
     box-shadow: 0 5px 13px black;
 }
 
@@ -241,16 +243,58 @@ a {
 
 /* Formulaire */
 
+#formLogo {
+    width: 7rem;
+}
+
+#returnBasket #arrow {
+    margin: 1rem;
+}
+
+.headerIcons #home {
+    padding: 1rem;
+}
+
+#formHeader {
+    flex-wrap: wrap;
+}
+
+#returnBasket {
+        flex-direction: row;
+        margin: auto 0;
+        align-items: center;
+    }
+
+.data {
+    padding: 1.5rem;
+}
+
     .orderMain {
-        padding: 1rem;
+        padding: 2rem;
     }
 
     form {
         padding: 1rem;
+        margin: auto;
+        background-color: white;
+        max-width: 70%;
     }
 
     form div {
-        padding-top: 1rem;
+        display: grid;
+    }
+
+    label {
+        margin-bottom: 0.5rem;
+    }
+
+    input {
+        height: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    input:hover {
+        border-color: #77cee3;
     }
 
     .form-adress {
@@ -259,14 +303,44 @@ a {
     }
 
     #form-submit {
-        padding: 0.5rem;
-        border-radius: 0.5rem;
+        padding-bottom: 2rem;
+        border-radius: 1rem;
+        background-image: linear-gradient(#99E2D0, #77cee3);
+        margin: 1rem;
+        padding-top: 1rem;
+        font-size: 1rem;
+        border: none;
+        box-shadow: 0 5px 13px #b9b9b9;
+        cursor: pointer;
     }
+
+    #form-submit:hover {
+        box-shadow: 0 5px 13px black;
+    }
+
+/*Page commande*/
+
+#idOrder h1 {
+     padding: 0;
+}
+
+.orderId {
+    padding: 1rem 0;
+}
+
+.spaceOrder {
+    height: 16rem;
+}
+
+.orderMain {
+    padding-bottom: 18%;
+}
 
 /* Desktop */
 
 @media screen and (min-width: 900px){
 
+    
     .basketMain {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -274,21 +348,42 @@ a {
         grid-template-areas: "teddies prix"
                               "teddies commander"
                               "teddies .";
-                              
+        column-gap: 3rem;
+        padding: 3rem;
     }
 
     #products {
         grid-row: 1/ span 3;
     }
 
+    .product {
+        margin: 0;
+    }
+
     #totalPrice {
         grid-area: prix;
+        background-color: white;
+        padding-top: 2rem;
+    }
+
+    #removeAll {
+        margin: 1rem;
+        padding: 0;
+        background-color: white;
+        display: flex;
     }
 
     .basketBtns {
         grid-area: prix;
         flex-direction: column;
         justify-content: flex-end;
+        margin: 0;
+        margin-top: 5rem;
+    }
+
+    .submit_basket {
+        border-radius: 0;
+        margin: 0;
     }
 
     #teddies {
@@ -333,6 +428,45 @@ a {
     .footer {
         margin-right: 3rem;
     }
+
+    /*Formulaire*/
+
+    form {
+        max-width: 50%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 3rem;
+        padding:4rem;
+    }
+
+    #home {
+        margin: auto;
+    }
+
+    .headerIcons {
+        display: flex;
+    }
+
+    .data {
+        padding: 2rem 0;
+        max-width: 58%;
+        margin: auto;
+    }
+
+    #formLogo {
+        padding: 1rem;
+        padding-right: 14rem;
+    }
+    
+.spaceOrder {
+    height: 9rem;
+}
+
+.deleteBasket {
+    display: flex;
+    align-items: center;
+    margin:1rem;
+}
 
 }
 

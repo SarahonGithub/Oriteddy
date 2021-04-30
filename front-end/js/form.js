@@ -7,7 +7,7 @@ myForm.addEventListener("submit", function(e) {
 //Ecoute du btn "valider le formulaire"
 document.getElementById("form-submit").addEventListener("click", function(e) {
 
-  
+  e.preventDefault()
 
   let firstName = document.getElementById("firstName");
 
@@ -22,25 +22,8 @@ document.getElementById("form-submit").addEventListener("click", function(e) {
   let myRegex = /^(([^<>()\[\]\.,;:\s@"]+(\.[^<>()\[\]\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 
-/*
-
-if (firstName.value.trim() = "") {
-  let myError = document.getElementById('error');
-  myError.innerHTML = "Le champs est requis";
-  myError.style.color = "red";
-  e.preventDefault();
-}
-
-else if (myRegex.test(firstName.value) == false) {
-  let myError = document.getElementById('error');
-  myError.innerHTML = "Le mot doit comporter des lettres et des tireets uniquement";
-  myError.style.color = "red";
-  e.preventDefault();
-}
-
-*/
-
     //Récupération de l'objet contact et du tableau des produits(id)
+
 
     if (firstName.value != "" && lastName.value != "" && myRegex.test(email.value) == true && address.value != "" && city.value != "") {
     
@@ -81,20 +64,21 @@ body.products.push(id)
     localStorage.getItem('orderData')
 
 
-    if(localStorage.getItem('orderData') !== null ) {
-    document.location="commande.html";
+    if(localStorage.getItem('selectedTeddies') !== null && localStorage.getItem('selectedTeddies')!="{}") {
+    document.location="order.html";
     }
-})
 
+})
 
 
   .catch(function (error) {
     console.log(error);
   })
 
+}
 
- e.preventDefault()
-
+else {
+  document.getElementById("alert").innerHTML='<p>Veuillez remplir votre panier</p>'
 }
 
 })
