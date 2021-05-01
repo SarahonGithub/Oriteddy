@@ -318,6 +318,10 @@ a {
         box-shadow: 0 5px 13px black;
     }
 
+    #error {
+        color:red
+    }
+
 /*Page commande*/
 
 #idOrder h1 {

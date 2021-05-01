@@ -68,6 +68,10 @@ body.products.push(id)
     document.location="order.html";
     }
 
+    else { 
+      alert("Votre panier est vide")
+    }
+
 })
 
 
@@ -78,7 +82,8 @@ body.products.push(id)
 }
 
 else {
-  document.getElementById("alert").innerHTML='<p>Veuillez remplir votre panier</p>'
+  var error = document.getElementById("error")
+  error.innerHTML = '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>Veuillez remplir tous les champs correctement'
 }
 
 })
