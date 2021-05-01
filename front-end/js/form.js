@@ -59,7 +59,7 @@ body.products.push(id)
 }).then (response => {
     return response.json();
 })
-.then(function(data){
+.then(function(){
     localStorage.setItem('orderData', JSON.stringify(data));
     localStorage.getItem('orderData')
 
