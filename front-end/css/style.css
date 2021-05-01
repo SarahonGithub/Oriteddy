@@ -197,8 +197,12 @@ li {
     margin: 0 1rem 1rem 1rem;
 }
 
+.deleteBasket {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
 #removeAll {
-    margin: 1.5rem 0;
     padding: 0.5rem 0.8rem;
     border: none;
     cursor: pointer;
@@ -349,15 +353,25 @@ a {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        grid-template-areas: "teddies prix"
+        grid-template-areas: "emptyBasket price"
                               "teddies commander"
                               "teddies .";
         column-gap: 3rem;
         padding: 3rem;
     }
 
+    .emptyBasket {
+        grid-area: emptyBasket;
+        margin-bottom: auto;
+    }
+
+    #emptyBasket {
+        font-size: 1.5rem;
+    }
+
     #products {
         grid-row: 1/ span 3;
+        grid-column: teddies;
     }
 
     .product {
@@ -365,16 +379,22 @@ a {
     }
 
     #totalPrice {
-        grid-area: prix;
+        grid-area: price;
         background-color: white;
         padding-top: 2rem;
+        height: 6rem;
+    }
+
+    .deleteBasket {
+        grid-area: price;
     }
 
     #removeAll {
-        margin: 1rem;
+        margin: 0;
         padding: 0;
         background-color: white;
         display: flex;
+        margin-left: 1rem;
     }
 
     .basketBtns {
@@ -468,7 +488,7 @@ a {
 
 .deleteBasket {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     margin:1rem;
 }
 

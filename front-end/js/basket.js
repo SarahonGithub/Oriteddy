@@ -4,7 +4,6 @@ var sumPrice = 0;
 var baskets = JSON.parse(localStorage.getItem('selectedTeddies'))
 
 
-
 //Objet.keys = Tableau contenant les id, clés de l'objet
 //forEach = éxécute la fonction sur chaque id, éléement de l'objets
 Object.keys(baskets).forEach(function (key) {
@@ -17,6 +16,8 @@ Object.keys(baskets).forEach(function (key) {
             return response.json()
         })
         .then(function (produit){
+
+            document.getElementById("emptyBasket").innerHTML=""
         
                     
                     //Récupération de l'image, du prix, du nom et de la quantité liés à l'Id
