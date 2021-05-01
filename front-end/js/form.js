@@ -83,7 +83,7 @@ body.products.push(id)
 
 else {
   var error = document.getElementById("error")
-  error.innerHTML = '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>Veuillez remplir tous les champs correctement'
+  error.innerHTML = 'Veuillez remplir tous les champs correctement'
 }
 
 })
