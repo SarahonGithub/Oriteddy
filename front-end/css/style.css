@@ -175,6 +175,7 @@ li {
 .totalPrice {
     font-weight: bold;
     font-size: 1.5rem;
+    padding-bottom: 3rem;
 }
 
 .basketBtn {
@@ -382,7 +383,6 @@ a {
         grid-area: price;
         background-color: white;
         padding-top: 2rem;
-        height: 6rem;
     }
 
     .deleteBasket {
