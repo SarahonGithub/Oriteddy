@@ -33,7 +33,6 @@ function deleteItem(id) {
     Object.keys(baskets).forEach(function (key) {
         if(id == key) {
             delete baskets[key]
-            // basket.splice(basket.indexOf('key'), 1) 
             localStorage.setItem('selectedTeddies', JSON.stringify(baskets));
             document.location.reload();
         }

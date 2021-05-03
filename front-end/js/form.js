@@ -1,9 +1,3 @@
-/*var myForm = document.getElementById("form-contact")
-myForm.addEventListener("submit", function(e) {
-
-}*/
-
-
 //Ecoute du btn "valider le formulaire"
 document.getElementById("form-submit").addEventListener("click", function(e) {
 
@@ -22,11 +16,9 @@ document.getElementById("form-submit").addEventListener("click", function(e) {
   let myRegex = /^(([^<>()\[\]\.,;:\s@"]+(\.[^<>()\[\]\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 
-    //Récupération de l'objet contact et du tableau des produits(id)
-
-
+    /*Vérification des champs du formulaire*/
     if (firstName.value != "" && lastName.value != "" && myRegex.test(email.value) == true && address.value != "" && city.value != "") {
-    
+    //Récupération de l'objet contact et du tableau des produits(id)
     let body = {
         contact : {
             firstName : firstName.value,
@@ -39,10 +31,9 @@ document.getElementById("form-submit").addEventListener("click", function(e) {
 }
 
 
-
 let basketArray = JSON.parse(localStorage.getItem('selectedTeddies'))
-//Parcourir le panier
 
+//Parcourir le panier
 var id = Object.keys(basketArray)
 
 body.products.push(id)
@@ -64,6 +55,7 @@ body.products.push(id)
     localStorage.getItem('orderData')
 
 
+    /*Vérification du contenu du panier*/
     if(localStorage.getItem('selectedTeddies') !== null && localStorage.getItem('selectedTeddies')!="{}") {
     document.location="order.html";
     }
@@ -73,7 +65,6 @@ body.products.push(id)
     }
 
 })
-
 
   .catch(function (error) {
     console.log(error);

@@ -37,10 +37,9 @@ Object.keys(baskets).forEach(function (key) {
                     basketPage = basketPage + '</div>'
                     document.getElementById("products").innerHTML += basketPage; 
 
+                    
                     //qty = valeur associée à l'id qui est la clé de l'objet 
                     var qty = baskets[produit._id];
-
-
 
                     sumPrice += (produit.price/100) * qty
                     totalPrice = '<p class="totalPrice">Prix total : ' + sumPrice + ' €</p>';
