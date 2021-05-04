@@ -10,9 +10,9 @@ request.onreadystatechange = function() {
         for (i = 0; i < response.length; i++) {
             const teddy = response[i];
             console.log(teddy);
-
+            
             /*Création du HTML avec les donsées à afficher*/
-             
+            
             liste = liste + '<li id="productsList"><a href="product.html?id=' + teddy._id + '"><img class="Img_produit" src="' + teddy.imageUrl + '">';
             liste = liste + '<div id="homeDescr'+teddy._id+'" class="homeDescr">'
             liste = liste + '<h2>' + teddy.name + '</h2>';
