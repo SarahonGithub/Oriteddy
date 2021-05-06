@@ -66,10 +66,22 @@ main {
 
 @media screen and (min-width: 900px){
     .productImg {
-        width: 50%;
+        width: 80%;
     }
     .price {
         font-size: 1.5rem;
+    }
+
+    .productPage {
+        padding: 5% 20%;
+    }
+
+    #productName {
+        padding-bottom: 2rem;
+    }
+
+    .price {
+        margin-top: 2rem;
     }
 
 }

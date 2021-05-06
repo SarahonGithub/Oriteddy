@@ -32,10 +32,13 @@ function addBasket(id_product) {
 
 //Supression du ou des produits de même id
 function deleteItem(id) {
-    Object.keys(baskets).forEach(function (key) {
+    if (localStorage.getItem('selectedTeddies') !== null) {
+        basket = JSON.parse(localStorage.getItem('selectedTeddies'));
+    }
+    Object.keys(basket).forEach(function (key) {
         if(id == key) {
-            delete baskets[key]
-            localStorage.setItem('selectedTeddies', JSON.stringify(baskets));
+            delete basket[key]
+            localStorage.setItem('selectedTeddies', JSON.stringify(basket));
             document.location.reload();
         }
     })
