@@ -48,11 +48,10 @@ p {
     margin: 2rem 3rem;
     padding: 0.5rem;
     list-style: none;
-    border-radius: 1rem;
 }
 
 #productsList:hover {
-    box-shadow: 0 5px 13px black;
+    box-shadow: 0 5px 13px grey;
 }
 
 a {
@@ -75,13 +74,10 @@ a {
 
 #ajouterPanier {
     background-color: #99E2D0;
-    border-radius: 1rem;
     font-size: 1.2rem;
     font-weight: bold;
     padding: 0.6rem 1rem;
     border: none;
-    box-shadow: 0 5px 13px #B9B9B9;
-    margin: 1rem;
     cursor: pointer;
 }
 
@@ -230,9 +226,6 @@ li {
 #produit {
     text-align: center;
     background-color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 5px 13px #d7d7d7;
 }
 
 .emptyBasket {
@@ -341,7 +334,7 @@ a {
 }
 
 .spaceOrder {
-    height: 16rem;
+    height: 55rem;
 }
 
 .orderMain {
@@ -352,7 +345,16 @@ a {
 
 @media screen and (min-width: 900px){
 
-    
+    #ajouterPanier {
+        grid-column: 2;
+        grid-row: 3;
+        margin-top: auto;
+    }
+
+    #produit {
+        grid-row: 1/ span2;
+    }
+
     .basketMain {
         display: grid;
         grid-template-columns: 1fr 1fr;
