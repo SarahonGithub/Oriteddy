@@ -32,7 +32,8 @@ document.getElementById("form-submit").addEventListener("click", function(e) {
     let basketArray = JSON.parse(localStorage.getItem('selectedTeddies'))
     
     //Parcourir le panier
-    var id = Object.keys(basketArray)
+    if(localStorage.getItem('selectedTeddies') !== null) {
+    var id = Object.keys(basketArray)}
     
     body.products.push(id)
     
