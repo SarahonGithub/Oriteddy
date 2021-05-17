@@ -36,7 +36,7 @@ document.getElementById("form-submit").addEventListener("click", function(e) {
     var id = Object.keys(basketArray)}
     
     body.products.push(id)
-    
+    if(localStorage.getItem('selectedTeddies') !== null && localStorage.getItem('selectedTeddies')!="{}") {
     //Requête POST pour envoyer le formulaire et le panier au serveur
     fetch('http://localhost:3000/api/teddies/order', {
       method: 'post',
@@ -54,25 +54,22 @@ document.getElementById("form-submit").addEventListener("click", function(e) {
       localStorage.getItem('orderData')
       
       /*Vérification du contenu du panier*/
-      if(localStorage.getItem('selectedTeddies') !== null && localStorage.getItem('selectedTeddies')!="{}") {
-        document.location="order.html";
-      }
       
-      else { 
-        alert("Votre panier est vide")
-      }
-    
+      document.location="order.html";
     })
     
     .catch(function (error) {
       console.log(error);
     })
-  
   }
+  
+  else { 
+    alert("Votre panier est vide")
+  }
+}
 
 else {
   var error = document.getElementById("error")
   error.innerHTML = 'Veuillez remplir tous les champs correctement'
 }
-
 })
