@@ -6,6 +6,8 @@ var baskets = JSON.parse(localStorage.getItem('selectedTeddies'))
 
 //Objet.keys = Tableau contenant les id, clés de l'objet
 //forEach = éxécute la fonction sur chaque id, éléement de l'objets
+if (localStorage.getItem('selectedTeddies') !== null && localStorage.getItem('selectedTeddies')!="{}") {
+
 Object.keys(baskets).forEach(function (key) {
     
     //Passage en paramètre de fetch de l'id et de sa quantité associée
@@ -47,3 +49,5 @@ Object.keys(baskets).forEach(function (key) {
         })     
     })
 });
+}
+
